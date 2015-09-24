@@ -4,7 +4,7 @@
 Vagrant.configure("2") do |config|
 
   #Vanilla
-  config.vm.box = "grtjn/centos-7.0"
+  config.vm.box = "grtjn/centos-7.1"
 
   #---Networking---
   #private network so the host will be accessible to IP 192.168.33.1
@@ -53,7 +53,7 @@ Vagrant.configure("2") do |config|
   #config.vm.provision :shell, :path => "scripts/php-55.sh"
   config.vm.provision :shell, :path => "scripts/php-56.sh"
   #config.vm.provision :shell, :path => "scripts/php-xhprof.sh"
-  #config.vm.provision :shell, :path => "scripts/composer.sh"
+  config.vm.provision :shell, :path => "scripts/composer.sh"
   #config.vm.provision :shell, :path => "scripts/install-silverstripe.sh", :args => "-v 3.x-dev"
   config.vm.provision :shell, :path => "scripts/apache.sh"
   #config.vm.provision :shell, :path => "scripts/mariadb.sh"
