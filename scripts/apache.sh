@@ -14,8 +14,8 @@
 # include
 
 #List of valid webroots in priority order
-WEBROOTS=('/vagrant/project/public/' '/vagrant/www/' '/vagrant/public_html/' '/vagrant/webroot/' '/vagrant/public/')
-
+#WEBROOTS=('/vagrant/project/public/' '/vagrant/www/' '/vagrant/public_html/' '/vagrant/webroot/' '/vagrant/public/')
+WEBROOT='/vagrant/webroot/'
 
 echo "Installing Apache"
 yum install -y httpd
@@ -25,23 +25,23 @@ systemctl enable httpd.service
 
 echo "Mounting webroot"
 # pick the webroot
-for i in ${WEBROOTS[@]}
-do
-	if [ -d $i ]
-	then
-		echo "Found Webroot"
-		WEBROOT=$i
-		break
-	fi
-done
+#for i in ${WEBROOTS[@]}
+#do
+#	if [ -d $i ]
+#	then
+#		echo "Found Webroot"
+#		WEBROOT=$i
+#		break
+#	fi
+#done
 
-if [ -z "$WEBROOT" ]
-then
-	echo "No webroot, installing SS"
-	WEBROOT="/vagrant/www"
-
-	/vagrant/scripts/install-silverstripe.sh -d ${WEBROOT}
-fi
+#if [ -z "$WEBROOT" ]
+#then
+#	echo "No webroot, installing SS"
+#	WEBROOT="/vagrant/www"
+#
+#	/vagrant/scripts/install-silverstripe.sh -d ${WEBROOT}
+#fi
 
 if [ -d $WEBROOT ]
 then
