@@ -56,7 +56,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, :path => "scripts/composer.sh"
   #config.vm.provision :shell, :path => "scripts/install-silverstripe.sh", :args => "-v 3.x-dev"
   config.vm.provision :shell, :path => "scripts/apache.sh"
-  config.vm.provision :shell, :path => "scripts/mariadb.sh"
+  config.vm.provision :shell, :path => "scripts/mysql.sh"
   #config.vm.provision :shell, :path => "scripts/php-mcrypt.sh"
   #config.vm.provision :shell, :path => "scripts/xdebug.sh"
   #config.vm.provision :shell, :path => "scripts/ntp.sh"
