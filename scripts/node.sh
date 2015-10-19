@@ -7,3 +7,4 @@ echo "Installing NodeJS (CentOS method)"
 
 echo "Installing NodeJS + NPM with EPEL"
 yum install -y npm --enablerepo=epel
+npm install -g npm@latest

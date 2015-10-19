@@ -3,13 +3,16 @@
 
 Vagrant.configure("2") do |config|
 
+  # Load config JSON.
+  config_json = JSON.parse(File.read("config.json"))
+
   #Vanilla
-  config.vm.box = "grtjn/centos-7.1"
+  config.vm.box = config_json["vm"]["box"]
 
   #---Networking---
   #private network so the host will be accessible to IP 192.168.33.1
-  config.vm.network "private_network", ip: "192.168.33.10"
-  config.vm.hostname = "drupalatsmals"
+  config.vm.network "private_network", ip: config_json["vm"]["ip"]
+  config.vm.hostname = config_json["vm"]["hostname"]
   
   # HTTP: Port forward 80 to 8080
   config.vm.network :forwarded_port, guest: 80, host: 8080, auto_correct: true
@@ -18,6 +21,11 @@ Vagrant.configure("2") do |config|
   # config.vm.network :forwarded_port, guest: 1080, host: 1080, auto_correct: true
   # config.vm.network :forwarded_port, guest: 1090, host: 1090, auto_correct: true
   # config.vm.network :forwarded_port, guest: 1080, host: 1080, auto_correct: true
+  # User defined forwarded ports.
+  config_json["vm"]["forwarded_ports"].each do |port|
+    config.vm.network "forwarded_port", guest: port["guest_port"],
+      host: port["host_port"], protocol: port["protocol"], auto_correct: true
+  end
 
   #Uncomment this if you want bridged network functionality
   #config.vm.network :public_network
@@ -42,34 +50,36 @@ Vagrant.configure("2") do |config|
   
   # to use a local CNTML proxy
   # your cntlm config should add a listen port 3128 on the interafce 192.168.33.1 by adding the following line in the cntlm.ini file
-  # Listen 		192.168.33.1:3128
-  config.proxy.http     = "http://192.168.33.1:3128/"
-  config.proxy.https    = "http://192.168.33.1:3128/"
-  config.proxy.no_proxy = "localhost,127.0.0.1,.example.com"
+  # Listen 		http://127.0.0.1:5865/
+  config.proxy.http     = config_json["vm"]["proxy_http"]
+  config.proxy.https    = config_json["vm"]["proxy_https"]
+  config.proxy.no_proxy = config_json["vm"]["proxy_no_proxy"]
 
   #Install lamp and so on
   #In future will probably swap this out with something like Puppet
-  #config.vm.provision :shell, :path => "scripts/php-54.sh"
-  #config.vm.provision :shell, :path => "scripts/php-55.sh"
-  config.vm.provision :shell, :path => "scripts/php-56.sh"
+  ##config.vm.provision :shell, :path => config_json["provisionning"]["php"]
   #config.vm.provision :shell, :path => "scripts/php-xhprof.sh"
-  config.vm.provision :shell, :path => "scripts/composer.sh"
+  ##config.vm.provision :shell, :path => config_json["provisionning"]["composer"]
   #config.vm.provision :shell, :path => "scripts/install-silverstripe.sh", :args => "-v 3.x-dev"
-  config.vm.provision :shell, :path => "scripts/apache.sh"
-  config.vm.provision :shell, :path => "scripts/mysql.sh"
+  ##config.vm.provision :shell, :path => config_json["provisionning"]["apache"]
+  ##config.vm.provision :shell, :path => config_json["provisionning"]["mysql"]
   #config.vm.provision :shell, :path => "scripts/php-mcrypt.sh"
   #config.vm.provision :shell, :path => "scripts/xdebug.sh"
   #config.vm.provision :shell, :path => "scripts/ntp.sh"
-  #config.vm.provision :shell, :path => "scripts/node.sh"
-  config.vm.provision :shell, :path => "scripts/bower.sh"
+  ##config.vm.provision :shell, :path => config_json["provisionning"]["node"]
+  ##config.vm.provision :shell, :path => config_json["provisionning"]["bower"]
   #config.vm.provision :shell, :path => "scripts/grunt.sh"
   #config.vm.provision :shell, :path => "scripts/grunt-watch.sh"
-  config.vm.provision :shell, :path => "scripts/sass.sh"
+  ##config.vm.provision :shell, :path => config_json["provisionning"]["sass"]
   #config.vm.provision :shell, :path => "scripts/silverstripe-tasks.sh"
   #config.vm.provision :shell, :path => "scripts/sspak.sh"
   #config.vm.provision :shell, :path => "scripts/mailcatcher.sh"
   #config.vm.provision :shell, :path => "scripts/bootstrap.sh"
   #config.vm.provision :shell, :path => "scripts/always.sh", run: "always"
-  config.vm.provision :shell, :path => "scripts/mc.sh"
-
+  ##config.vm.provision :shell, :path => config_json["provisionning"]["mc"]
+  # Install provisinning
+  config_json["provisionning"].each do |provision|
+    config.vm.provision :shell, :path => config_json["parameters"]["scripts_location"] + provision + ".sh"
+  end
+  puts "Yeah! Done!"
 end
