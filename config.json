@@ -1,0 +1,58 @@
+{
+  "vm": {
+    "box": "grtjn/centos-7.1",
+    "ip": "192.168.33.10",
+    "hostname": "drupalatsmals",
+    "memory": "1024",
+    "synced_folders": [
+      {
+        "host_path": "data/",
+        "guest_path": "/var/www",
+        "type": "default"
+      }
+    ],
+    "forwarded_ports": [],
+    "proxy_http": "http://192.168.33.1:3128/",
+    "proxy_https": "http://192.168.33.1:3128/",
+    "proxy_no_proxy": "localhost,127.0.0.1,.example.com"
+  },
+  "parameters": {
+    "scripts_location": "scripts/"
+  },
+  "provisionning": [
+    "php-56",
+    "composer",
+    "apache",
+    "mysql",
+    "mc",
+    "drupal7"
+  ],
+  "drupal": {
+    "sites": {
+      "drupal8": {
+        "account_name": "admin",
+        "account_pass": "admin",
+        "account_mail": "box@example.com",
+        "site_name": "drupal8_at_smals",
+        "site_mail": "box@example.com",
+        "vhost": {
+          "document_root": "drupal8",
+          "url": "drupal8.dev",
+          "alias": ["www.drupal8.dev"]
+        }
+      },
+      "drupal7": {
+        "account_name": "admin",
+        "account_pass": "admin",
+        "account_mail": "box@example.com",
+        "site_name": "drupal7_at_smals",
+        "site_mail": "box@example.com",
+        "vhost": {
+          "document_root": "drupal7",
+          "url": "drupal7.dev",
+          "alias": ["www.drupal7.dev"]
+        }
+      }
+    }
+  }
+}
