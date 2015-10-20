@@ -25,7 +25,7 @@
     "apache",
     "mysql",
     "mc",
-    "drupal7"
+    "drupal8"
   ],
   "drupal": {
     "sites": {

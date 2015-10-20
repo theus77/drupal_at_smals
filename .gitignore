@@ -3,3 +3,7 @@
 /.settings
 /.editorconfig
 /.buildpath
+webroot
+.project
+.gitignore
+scripts/test.sh

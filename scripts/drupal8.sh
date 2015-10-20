@@ -5,6 +5,7 @@ cd jq
 sudo wget "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64"
 sudo mv jq-linux64 jq
 sudo chmod 777 jq
+cd ..
 if [ -r "/vagrant/config.json" ]
 then
   echo "Config.json found"
