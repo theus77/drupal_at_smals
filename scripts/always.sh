@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-echo "Post boot script"
+echo "Post-boot script"
 
-#echo "starting httpd"
-#systemctl start httpd.service
+echo "starting httpd"
+systemctl start httpd.service
 
 #if [ -x /usr/local/bin/mailcatcher ]; then
 #	echo "Starting mailcatcher"
@@ -13,4 +13,3 @@ echo "Post boot script"
 #	echo "Clearing SS site cache"
 #    rm -rf /var/www/html/silverstripe-cache/*
 #fi
-echo "Vagrant is up and running"

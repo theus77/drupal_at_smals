@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "grtjn/centos-7.1"
-  config.vm.hostname = "faqatsmals"
+  config.vm.hostname = "drupalatsmals"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -28,6 +28,7 @@ Vagrant.configure(2) do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 3306, host: 3306
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -73,6 +74,8 @@ Vagrant.configure(2) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
+  
+  config.vm.synced_folder "httpd", "/etc/httpd/conf.d"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -98,30 +101,35 @@ Vagrant.configure(2) do |config|
 
   #Install docker and so on
   #In future will probably swap this out with something like Puppet
-  #config.vm.provision :shell, :path => "scripts/php-54.sh"
-  #config.vm.provision :shell, :path => "scripts/php-55.sh"
-  #config.vm.provision :shell, :path => "scripts/php-56.sh"
-  #config.vm.provision :shell, :path => "scripts/php-xhprof.sh"
-  #config.vm.provision :shell, :path => "scripts/composer.sh"
   #config.vm.provision :shell, :path => "scripts/install-silverstripe.sh", :args => "-v 3.x-dev"
-  #config.vm.provision :shell, :path => "scripts/apache.sh"
-  #config.vm.provision :shell, :path => "scripts/mariadb.sh"
+  #config.vm.provision :shell, :path => "scripts/php-xhprof.sh"
   #config.vm.provision :shell, :path => "scripts/php-mcrypt.sh"
   #config.vm.provision :shell, :path => "scripts/xdebug.sh"
   #config.vm.provision :shell, :path => "scripts/ntp.sh"
-  #config.vm.provision :shell, :path => "scripts/node.sh"
-  #config.vm.provision :shell, :path => "scripts/bower.sh"
   #config.vm.provision :shell, :path => "scripts/grunt.sh"
+  #config.vm.provision :shell, :path => "scripts/node.sh"
   #config.vm.provision :shell, :path => "scripts/grunt-watch.sh"
-  #config.vm.provision :shell, :path => "scripts/sass.sh"
   #config.vm.provision :shell, :path => "scripts/silverstripe-tasks.sh"
   #config.vm.provision :shell, :path => "scripts/sspak.sh"
   #config.vm.provision :shell, :path => "scripts/mailcatcher.sh"
   #config.vm.provision :shell, :path => "scripts/bootstrap.sh"
+  
+  
   config.vm.provision :shell, :path => "scripts/update.sh" 
-  config.vm.provision :shell, :path => "scripts/mysql.sh"
+  #config.vm.provision :shell, :path => "scripts/php.sh"
+  #config.vm.provision :shell, :path => "scripts/php-54.sh"
+  #config.vm.provision :shell, :path => "scripts/php-55.sh"
+  config.vm.provision :shell, :path => "scripts/php-56.sh"
+  config.vm.provision :shell, :path => "scripts/composer.sh"
+  config.vm.provision :shell, :path => "scripts/apache.sh"
+  config.vm.provision :shell, :path => "scripts/sass.sh"  
+  config.vm.provision :shell, :path => "scripts/mariadb.sh"
+  #config.vm.provision :shell, :path => "scripts/mysql.sh"
+  config.vm.provision :shell, :path => "scripts/bower.sh"
   config.vm.provision :shell, :path => "scripts/docker.sh"
   config.vm.provision :shell, :path => "scripts/mc.sh"
+  config.vm.provision :shell, :path => "scripts/phpmyadmin.sh", privileged: false
   config.vm.provision :shell, :path => "scripts/always.sh", run: "always"
+  config.vm.provision :shell, :path => "scripts/user.sh", run: "always", privileged: false
    
 end

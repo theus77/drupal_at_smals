@@ -33,4 +33,5 @@ whoami //to be sure
 export http_proxy=http://127.0.0.1:5865
 export https_proxy=http://127.0.0.1:5865
 vagrant plugin install vagrant-proxyconf
+vagrant plugin install vagrant-vbguest
 vagrant up

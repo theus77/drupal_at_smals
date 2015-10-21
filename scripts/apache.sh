@@ -1,20 +1,6 @@
 #!/usr/bin/env bash
 
-## TODOs ##
-# Make sure following modules are installed for html5 boilerplate htaccess #
-# setenvif
-# headers
-# mime
-# rewrite
-# autoindex
-# authz_core
-# deflate
-# filter
-# expires
-# include
-
 #List of valid webroots in priority order
-#WEBROOTS=('/vagrant/project/public/' '/vagrant/www/' '/vagrant/public_html/' '/vagrant/webroot/' '/vagrant/public/')
 WEBROOT='/vagrant/webroot/'
 
 echo "Installing Apache"
@@ -22,26 +8,6 @@ yum install -y httpd
 
 echo "Adding Apache service to autostart"
 systemctl enable httpd.service
-
-echo "Mounting webroot"
-# pick the webroot
-#for i in ${WEBROOTS[@]}
-#do
-#	if [ -d $i ]
-#	then
-#		echo "Found Webroot"
-#		WEBROOT=$i
-#		break
-#	fi
-#done
-
-#if [ -z "$WEBROOT" ]
-#then
-#	echo "No webroot, installing SS"
-#	WEBROOT="/vagrant/www"
-#
-#	/vagrant/scripts/install-silverstripe.sh -d ${WEBROOT}
-#fi
 
 if [ -d $WEBROOT ]
 then

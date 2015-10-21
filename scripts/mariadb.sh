@@ -54,6 +54,10 @@ do
 
 	echo "Importing database dump"
 	sed '/^CREATE DATABASE/d;/^USE/d' $file | mysql $DB_NAME -u root
+	
+	mysql -u root <<< "CREATE USER \`$DB_NAME\`@'%';"
+	mysql -u root <<< "GRANT USAGE ON * . * TO  \`$DB_NAME\`@'%' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;"
+	mysql -u root <<< "GRANT ALL PRIVILEGES ON  \`$DB_NAME\` . * TO  \`$DB_NAME\`@'%';"
 done;
 
 for file in $DEL_FILES
