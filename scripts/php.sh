@@ -3,15 +3,10 @@
 PHP_NAME="php"
 
 # declare the php modules we want
-MODULES=(common mysql gd mbstring xml pear devel opcache)
-
-/vagrant/scripts/epel.sh
+MODULES=(common mysql gd mbstring xml tidy pear devel)
 
 echo "Installing PHP and common modules"
-yum install -y $PHP_NAME ${MODULES[@]/#/$PHP_NAME-}  --enablerepo=remi,remi-php56
-
-
-#--enablerepo=epel --enablerepo=webtatic
+yum install -y $PHP_NAME ${MODULES[@]/#/$PHP_NAME-}
 
 # use the dev php.ini file
 cp -f /usr/share/doc/$PHP_NAME-*/php.ini-development /etc/php.ini

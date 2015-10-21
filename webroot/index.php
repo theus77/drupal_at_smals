@@ -5,8 +5,6 @@
 <title>Hello world</title>
 </head>
 <body>
-<?php 
-	phpinfo();
-?>
+Vagrant homepage!
 </body>
 </html>

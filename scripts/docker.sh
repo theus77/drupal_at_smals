@@ -12,7 +12,16 @@ gpgcheck=1
 gpgkey=https://yum.dockerproject.org/gpg
 EOF
 
-install docker-engine
+#define proxy parameters
+#https://docs.docker.com/articles/systemd/#http-proxy
+mkdir /etc/systemd/system/docker.service.d
+cat > /etc/systemd/system/docker.service.d/http-proxy.conf <<-EOF
+[Service]
+Environment="HTTP_PROXY=http://192.168.33.1:5865/" "HTTPS_PROXY=http://192.168.33.1:5865/" "NO_PROXY=localhost,127.0.0.1,.example.com"
+EOF
+
+
+yum install -y docker-engine
 
 service docker start
 
@@ -20,3 +29,9 @@ usermod -aG docker vagrant
 
 chkconfig docker on
 
+curl -L https://github.com/docker/compose/releases/download/1.5.0rc1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+ 
+chmod +x /usr/local/bin/docker-compose
+
+service docker restart
+echo "Docker and Docker-Compose have been installed"

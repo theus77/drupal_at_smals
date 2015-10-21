@@ -1,0 +1,9 @@
+web:
+  build: php
+#  command: sh
+  ports:
+    - "8080:80"
+#  links:
+#    - db
+  volumes:
+    - ./php/src/:/var/www/html/
