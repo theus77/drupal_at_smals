@@ -3,7 +3,7 @@
 //define DB settings
 define('SS_DATABASE_SERVER', '127.0.0.1');
 define('SS_DATABASE_CLASS','MySQLDatabase');
-define('SS_DATABASE_TIMEZONE','+00:00');
+define('SS_DATABASE_TIMEZONE','+01:00');
 define('SS_DATABASE_USERNAME', 'root');
 define('SS_DATABASE_PASSWORD', '');
 define('SS_DATABASE_NAME', 'vagrant');

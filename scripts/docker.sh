@@ -33,5 +33,11 @@ curl -L https://github.com/docker/compose/releases/download/1.5.0rc1/docker-comp
  
 chmod +x /usr/local/bin/docker-compose
 
+#http://www.devops-insight.com/2014/11/using-docker-with-a-proxy.html
+cp /vagrant/repo.cer /etc/pki/ca-trust/source/anchors/
+update-ca-trust extract
 service docker restart
+
 echo "Docker and Docker-Compose have been installed"
+
+

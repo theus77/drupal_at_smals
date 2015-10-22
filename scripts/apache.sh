@@ -25,6 +25,9 @@ sed -i 's/EnableSendfile on/EnableSendfile off/i' /etc/httpd/conf/httpd.conf
 # allow overrides in /var/www/html
 sed -i '/<Directory "\/var\/www\/html">/,/<\/Directory>/ { s/AllowOverride None/AllowOverride All/i }' /etc/httpd/conf/httpd.conf
 
+
+printf '%s\n' 'IncludeOptional /vagrant/httpd/*.conf' >> /etc/httpd/conf/httpd.conf
+
 if [ -d /var/lib/php/session ]
 then
 	chown -R vagrant: /var/lib/php/session
