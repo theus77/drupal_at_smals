@@ -1,12 +1,12 @@
 dummy:
   build: projects/dummy
-#  command: sh
+  command: run
   ports:
-    - "8080:80"
+    - "8080:8080"
 #  links:
 #    - db
 #  volumes:
-#    - ./projects/dummy/src/:/var/www/html/
+#    - ./projects/dummy/src/:/opt/src/
 #phpmyfaq:
 #  build: projects/phpmyfaq
 #  command: sh

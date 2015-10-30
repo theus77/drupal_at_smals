@@ -14,11 +14,11 @@ EOF
 
 #define proxy parameters
 #https://docs.docker.com/articles/systemd/#http-proxy
-mkdir /etc/systemd/system/docker.service.d
-cat > /etc/systemd/system/docker.service.d/http-proxy.conf <<-EOF
-[Service]
-Environment="HTTP_PROXY=http://192.168.33.1:5865/" "HTTPS_PROXY=http://192.168.33.1:5865/" "NO_PROXY=localhost,127.0.0.1,.example.com"
-EOF
+#mkdir /etc/systemd/system/docker.service.d
+#cat > /etc/systemd/system/docker.service.d/http-proxy.conf <<-EOF
+#[Service]
+#Environment="HTTP_PROXY=http://192.168.33.1:5865/" "HTTPS_PROXY=http://192.168.33.1:5865/" "NO_PROXY=localhost,127.0.0.1,.example.com"
+#EOF
 
 
 yum install -y docker-engine
@@ -34,10 +34,8 @@ curl -L https://github.com/docker/compose/releases/download/1.5.0rc1/docker-comp
 chmod +x /usr/local/bin/docker-compose
 
 #http://www.devops-insight.com/2014/11/using-docker-with-a-proxy.html
-cp /vagrant/repo.cer /etc/pki/ca-trust/source/anchors/
+cp /vagrant/keys/repo.cer /etc/pki/ca-trust/source/anchors/
 update-ca-trust extract
 service docker restart
 
 echo "Docker and Docker-Compose have been installed"
-
-
