@@ -14,11 +14,11 @@ EOF
 
 #define proxy parameters
 #https://docs.docker.com/articles/systemd/#http-proxy
-#mkdir /etc/systemd/system/docker.service.d
-#cat > /etc/systemd/system/docker.service.d/http-proxy.conf <<-EOF
-#[Service]
-#Environment="HTTP_PROXY=http://192.168.33.1:5865/" "HTTPS_PROXY=http://192.168.33.1:5865/" "NO_PROXY=localhost,127.0.0.1,.example.com"
-#EOF
+mkdir /etc/systemd/system/docker.service.d
+cat > /etc/systemd/system/docker.service.d/http-proxy.conf <<-EOF
+[Service]
+Environment="HTTP_PROXY=http://127.0.0.1:5865/" "HTTPS_PROXY=http://127.0.0.1:5865/" "NO_PROXY=localhost,127.0.0.1,.example.com"
+EOF
 
 
 yum install -y docker-engine

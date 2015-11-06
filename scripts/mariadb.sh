@@ -9,6 +9,10 @@ systemctl enable mariadb.service
 echo "Starting MariaDB service"
 systemctl start mariadb.service
 
+
+#max_allowed_packet=64M
+
+
 # find the DB folder
 if [ -d /vagrant/database ]
 then
