@@ -25,6 +25,7 @@
     "apache",
     "mysql",
     "mc",
+    "phpmyadmin",
     "drupal8"
   ],
   "drupal": {
