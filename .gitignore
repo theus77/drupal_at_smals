@@ -1,0 +1,6 @@
+.vagrant
+.idea
+/.settings
+/.editorconfig
+/.buildpath
+/projects/*/

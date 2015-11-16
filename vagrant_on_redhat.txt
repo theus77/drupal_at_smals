@@ -1,0 +1,37 @@
+//start CNTLM listen on 127.0.0.1:5865
+//install VirtualBox
+//Based on http://www.if-not-true-then-false.com/2010/install-virtualbox-with-yum-on-fedora-centos-red-hat-rhel/
+sudo bash
+export http_proxy=http://localhost:5865
+export https_proxy=http://localhost:5865
+export no_proxy="localhost,127.0.0.1,.example.com,drupalatsmals"
+
+yum install binutils qt gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms git screen mc
+//remote port on putty 5865:127.0.0.1:5865 and run CTLM
+cd /etc/yum.repos.d/
+wget http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo
+yum update
+rpm -qa kernel |sort -V |tail -n 1
+uname -r
+//Two last commands should print the same kernel version reboot if they don't, please reboot (attention to the https_proxy rules)
+//I did't do it but think about EPEL repositories:
+//rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+yum install VirtualBox-5.0
+service vboxdrv setup
+usermod -a -G vboxusers drupaladm
+//install vagrant
+//download the last RPM from https://www.vagrantup.com/downloads.html
+cd
+wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.rpm
+rpm -i vagrant_1.7.4_x86_64.rpm
+exit //back to user privileges
+whoami //to be sure
+//get a release of this project: https://github.com/BetterBrief/vagrant-skeleton
+//unzip it on the server
+//do your shopping in the vagrant file
+//change the box from "chef/centos-7.0" to "bento/centos-7.1"
+export http_proxy=http://127.0.0.1:5865
+export https_proxy=http://127.0.0.1:5865
+vagrant plugin install vagrant-proxyconf
+vagrant plugin install vagrant-vbguest
+vagrant up
