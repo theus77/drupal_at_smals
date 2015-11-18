@@ -4,7 +4,7 @@
 WEBROOT='/vagrant/webroot/'
 
 echo "Installing Apache"
-yum install -y httpd
+yum install -y httpd mod_ssl openssl
 
 echo "Adding Apache service to autostart"
 systemctl enable httpd.service

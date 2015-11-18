@@ -15,7 +15,7 @@ EOF
 
 yum install -y elasticsearch
 
-sed -i 's/# network.host: 192.168.0.1/network.host: 192.168.33.11/i' /etc/elasticsearch/elasticsearch.yml
+sed -i 's/# network.host: 192.168.0.1/network.host:  ::0/i' /etc/elasticsearch/elasticsearch.yml
 
 /usr/share/elasticsearch/bin/plugin -DproxyPort=5865 -DproxyHost=192.168.33.1 install mobz/elasticsearch-head
  
