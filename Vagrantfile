@@ -13,11 +13,7 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "grtjn/centos-7.1"
-<<<<<<< HEAD
-  config.vm.hostname = "urlparser"
-=======
   config.vm.hostname = "drupalatsmals"
->>>>>>> bccbbd470ea33b97f0bc5e6a242ea2f3c0bfe8fd
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -32,11 +28,7 @@ Vagrant.configure(2) do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network "forwarded_port", guest: 80, host: 8080
-<<<<<<< HEAD
   #config.vm.network "forwarded_port", guest: 3306, host: 3306
-=======
-  config.vm.network "forwarded_port", guest: 3306, host: 3306
->>>>>>> bccbbd470ea33b97f0bc5e6a242ea2f3c0bfe8fd
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -118,13 +110,9 @@ Vagrant.configure(2) do |config|
   #config.vm.provision :shell, :path => "scripts/grunt-watch.sh"
   #config.vm.provision :shell, :path => "scripts/silverstripe-tasks.sh"
   #config.vm.provision :shell, :path => "scripts/sspak.sh"
-  #config.vm.provision :shell, :path => "scripts/mailcatcher.sh"
-  #config.vm.provision :shell, :path => "scripts/bootstrap.sh"
-<<<<<<< HEAD
-=======
-  
-  
->>>>>>> bccbbd470ea33b97f0bc5e6a242ea2f3c0bfe8fd
+  config.vm.provision :shell, :path => "scripts/mailcatcher.sh"
+  config.vm.provision :shell, :path => "scripts/bootstrap.sh"
+
   config.vm.provision :shell, :path => "scripts/update.sh" 
   #config.vm.provision :shell, :path => "scripts/php.sh"
   #config.vm.provision :shell, :path => "scripts/php-54.sh"
@@ -133,23 +121,16 @@ Vagrant.configure(2) do |config|
   config.vm.provision :shell, :path => "scripts/composer.sh"
   config.vm.provision :shell, :path => "scripts/apache.sh"
   config.vm.provision :shell, :path => "scripts/sass.sh"  
-<<<<<<< HEAD
-  #config.vm.provision :shell, :path => "scripts/mariadb.sh"
-  config.vm.provision :shell, :path => "scripts/mysql.sh"
-  #config.vm.provision :shell, :path => "scripts/bower.sh"
-  config.vm.provision :shell, :path => "scripts/docker.sh"
-  config.vm.provision :shell, :path => "scripts/mc.sh"
-  config.vm.provision :shell, :path => "scripts/phpmyadmin.sh", privileged: false
-  config.vm.provision :shell, :path => "scripts/linkchecker.sh"
-  config.vm.provision :shell, :path => "scripts/symfony.sh"
-=======
+
   config.vm.provision :shell, :path => "scripts/mariadb.sh"
   #config.vm.provision :shell, :path => "scripts/mysql.sh"
   config.vm.provision :shell, :path => "scripts/bower.sh"
   config.vm.provision :shell, :path => "scripts/docker.sh"
   config.vm.provision :shell, :path => "scripts/mc.sh"
   config.vm.provision :shell, :path => "scripts/phpmyadmin.sh", privileged: false
->>>>>>> bccbbd470ea33b97f0bc5e6a242ea2f3c0bfe8fd
+  config.vm.provision :shell, :path => "scripts/linkchecker.sh"
+  config.vm.provision :shell, :path => "scripts/symfony.sh"
+
   config.vm.provision :shell, :path => "scripts/always.sh", run: "always"
   config.vm.provision :shell, :path => "scripts/user.sh", run: "always", privileged: false
    

@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-<<<<<<< HEAD
 echo "Installing phpmyadmin"
 
 wget https://github.com/phpmyadmin/phpmyadmin/archive/RELEASE_4_5_0_2.tar.gz
@@ -15,4 +14,3 @@ wget https://github.com/phpmyadmin/phpmyadmin/archive/RELEASE_4_5_0_2.tar.gz
 tar -zxvf RELEASE_4_5_0_2.tar.gz
 
 echo "Vagrant is up and running"
->>>>>>> bccbbd470ea33b97f0bc5e6a242ea2f3c0bfe8fd

@@ -1,0 +1,26 @@
+//start CNTLM listen on 127.0.0.1:5865
+On windows that would be something like this: 
+C:\PHPDEV\tools\cntlm-0.92.3\cntlm.exe -v -c C:\PHPDEV\tools\cntlm-0.92.3\cntlm.ini
+
+//Install Virtualbox
+//Based on http://www.if-not-true-then-false.com/2010/install-virtualbox-with-yum-on-fedora-centos-red-hat-rhel/
+sudo bash
+export http_proxy=http://localhost:5865
+export https_proxy=http://localhost:5865
+export no_proxy="localhost,127.0.0.1,.example.com,drupalatsmals"
+
+//Install Vagrant
+//Install Vagrant plugins:
+vagrant plugin install vagrant-bindfs vagrant-cachier vagrant-hostmanager vagrant-proxyconf
+
+//On Windows Launch GitShell as Admin
+
+//We use the box "grtjn/centos-7.1"
+//Enable the requirements for Kunstmaan (https://bundles.kunstmaan.be/documentation/installation/system-requirements)
+
+
+export http_proxy=http://127.0.0.1:5865
+export https_proxy=http://127.0.0.1:5865
+vagrant plugin install vagrant-proxyconf
+vagrant plugin install vagrant-vbguest
+vagrant up
