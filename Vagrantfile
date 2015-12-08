@@ -107,6 +107,7 @@ Vagrant.configure(2) do |config|
     #config.vm.provision :shell, :path => "scripts/php-55.sh"
   config.vm.provision :shell, :path => "scripts/php-56.sh"
   config.vm.provision :shell, :path => "scripts/apache.sh"
+  config.vm.provision :shell, :path => "scripts/imagick-php.sh"
     #config.vm.provision :shell, :path => "scripts/install-silverstripe.sh", :args => "-v 3.x-dev"
     #config.vm.provision :shell, :path => "scripts/php-xhprof.sh"
     #config.vm.provision :shell, :path => "scripts/php-mcrypt.sh"
