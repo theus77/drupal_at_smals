@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Deps
-/vagrant/scripts/node.sh
+. /vagrant/scripts/node.sh
 
 # Install bower
 echo "Installing bower"
