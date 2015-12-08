@@ -5,7 +5,8 @@ PHP_NAME="php55w"
 # declare the php modules we want
 MODULES=(common mysql gd mbstring xml tidy pear devel)
 
-/vagrant/scripts/epel.sh
+#install EPEL repo
+. /vagrant/scripts/epel.sh
 
 echo "Installing PHP and common modules"
 yum install -y $PHP_NAME ${MODULES[@]/#/$PHP_NAME-} --enablerepo=epel --enablerepo=webtatic

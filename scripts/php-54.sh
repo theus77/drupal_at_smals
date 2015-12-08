@@ -9,7 +9,7 @@ echo "Installing PHP and common modules"
 yum install -y $PHP_NAME ${MODULES[@]/#/$PHP_NAME-}
 
 #install EPEL repo
-/vagrant/scripts/epel.sh
+. /vagrant/scripts/epel.sh
 
 yum install -y php-tidy --enablerepo=epel
 

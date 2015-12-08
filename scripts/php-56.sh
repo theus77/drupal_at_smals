@@ -5,7 +5,8 @@ PHP_NAME="php"
 # declare the php modules we want
 MODULES=(common mysql gd mbstring xml pear devel opcache)
 
-/vagrant/scripts/epel.sh
+#install EPEL repo
+. /vagrant/scripts/epel.sh
 
 echo "Installing PHP and common modules"
 yum install -y $PHP_NAME ${MODULES[@]/#/$PHP_NAME-}  --enablerepo=remi,remi-php56
