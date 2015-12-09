@@ -3,9 +3,8 @@
 echo 'install Intl for php56'
 
 #install required library
-yum install -y libicu
-yum install -y icu
-yum install -y libicu-devel.x86_64
+yum install -y icu libicu libicu-devel.x86_64
+yum install -y gcc gcc-c++ autoconf automake
 
 /usr/bin/pecl install intl
 
