@@ -4,6 +4,7 @@ echo 'install Intl for php56'
 
 #install required library
 yum install -y libicu
+yum install -y icu
 yum install -y libicu-devel.x86_64
 
 /usr/bin/pecl install intl
