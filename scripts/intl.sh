@@ -6,7 +6,7 @@ echo 'install Intl for php56'
 yum install -y icu libicu libicu-devel.x86_64
 yum install -y gcc gcc-c++ autoconf automake
 
-/usr/bin/pecl install intl
+printf "\n" | /usr/bin/pecl install intl
 
 chmod +x /usr/lib64/php/modules/intl.so
 
