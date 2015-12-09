@@ -9,6 +9,8 @@ yum install -y ImageMagick*
 echo 'install Imagick php'
 pecl install Imagick
 
+chmod +x /usr/lib64/php/modules/imagick.so
+
 echo 'enabling imagick in php'
 sed -ri '/;extension=php_xsl.dll/a extension=imagick.so' /etc/php.ini 
 #TODO is this the best way??
