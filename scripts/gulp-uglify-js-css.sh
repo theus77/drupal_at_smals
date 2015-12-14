@@ -4,6 +4,7 @@
 
 # Install bower
 echo "Installing gulp uglify-js uglifycss"
+npm config set loglevel warn
 npm install -g npm
 npm install -g gulp
 npm install -g uglify-js
