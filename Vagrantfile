@@ -130,12 +130,12 @@ Vagrant.configure(2) do |config|
   config.vm.provision :shell, :path => "scripts/mariadb.sh"
   #config.vm.provision :shell, :path => "scripts/mysql.sh"
   config.vm.provision :shell, :path => "scripts/bower.sh"
-  config.vm.provision :shell, :path => "scripts/gulp-uglify-js-css.sh"
   config.vm.provision :shell, :path => "scripts/rubygems.sh"
   config.vm.provision :shell, :path => "scripts/elasticsearch.sh"
   #config.vm.provision :shell, :path => "scripts/docker.sh"
   config.vm.provision :shell, :path => "scripts/mc.sh"
   config.vm.provision :shell, :path => "scripts/phpmyadmin.sh", privileged: false
+  config.vm.provision :shell, :path => "scripts/gulp-uglify-js-css.sh"
   #config.vm.provision :shell, :path => "scripts/linkchecker.sh"
   #config.vm.provision :shell, :path => "scripts/symfony.sh"
   #config.vm.provision :shell, :path => "scripts/kunstmaan.sh"

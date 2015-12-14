@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 echo "Post-boot script"
 
-echo "starting httpd"
-systemctl start httpd.service
-
 #if [ -x /usr/local/bin/mailcatcher ]; then
 #	echo "Starting mailcatcher"
 #	/usr/local/bin/mailcatcher --ip=0.0.0.0

@@ -4,6 +4,7 @@
 
 # Install bower
 echo "Installing gulp uglify-js uglifycss"
+npm install -g npm
 npm install -g gulp
 npm install -g uglify-js
 npm install -g uglifycss

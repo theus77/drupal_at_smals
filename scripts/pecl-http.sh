@@ -11,7 +11,7 @@ yum install -y curl-devel
 
 echo 'install raphf and propro'
 /usr/bin/pecl install raphf
-printf "\n" | /usr/bin/pecl install propro
+printf "\n" | /usr/bin/pecl -q install propro
 
 chmod +x /usr/lib64/php/modules/raphf.so
 chmod +x /usr/lib64/php/modules/propro.so
@@ -31,7 +31,7 @@ systemctl restart httpd.service
 
 echo 'install pecl-http'
 yum install -y zlib-devel
-printf "\n" | /usr/bin/pecl install pecl_http
+printf "\n" | /usr/bin/pecl -q install pecl_http
 
 chmod +x /usr/lib64/php/modules/http.so
 

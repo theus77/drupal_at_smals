@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+echo 'install ImageMagick for php56'
 #Ensure that php-pear and gcc is installed
 yum install -y php-pear
 yum install -y gcc gcc-c++ autoconf automake
@@ -8,7 +9,7 @@ echo 'install ImageMagick'
 yum install -y ImageMagick*
 
 echo 'install Imagick php'
-pecl install Imagick
+pecl -q install Imagick
 
 chmod +x /usr/lib64/php/modules/imagick.so
 
