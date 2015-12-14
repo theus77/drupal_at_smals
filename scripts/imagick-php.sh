@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-#Ensure that php-pear is installed
+#Ensure that php-pear and gcc is installed
 yum install -y php-pear
+yum install -y gcc gcc-c++ autoconf automake
 
 echo 'install ImageMagick'
 yum install -y ImageMagick*
