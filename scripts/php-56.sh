@@ -19,7 +19,7 @@ cp -f /usr/share/doc/$PHP_NAME-*/php.ini-development /etc/php.ini
 
 # set the date/time
 sed -i 's/;date\.timezone.*/date\.timezone = Europe\/Brussels/g' /etc/php.ini
-sed -i 's/memory_limit.*/memory_limit = 256M/g' /etc/php.ini
+sed -i 's/memory_limit.*/memory_limit = -1/g' /etc/php.ini
 
 echo "Restarting Apache"
 systemctl start httpd.service
