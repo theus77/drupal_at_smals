@@ -60,9 +60,9 @@ Vagrant.configure(2) do |config|
 	  # your cntlm config should add a listen port 3128 on the interafce 192.168.33.1 by adding the following line in the cntlm.ini file
 	  # Listen 		192.168.33.1:3128
 	  
-	  config.proxy.http     = "http://192.168.33.1:5865/"
-	  config.proxy.https    = "http://192.168.33.1:5865/"
-	  config.proxy.no_proxy = "localhost,127.0.0.1,.example.com"
+	  #config.proxy.http     = "http://192.168.33.1:5865/"
+	  #config.proxy.https    = "http://192.168.33.1:5865/"
+	  #config.proxy.no_proxy = "localhost,127.0.0.1,.example.com"
   end
 
   #activate the gui
@@ -142,6 +142,6 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision :shell, :path => "scripts/always.sh", run: "always"
   config.vm.provision :shell, :path => "scripts/user.sh", run: "always", privileged: false
-  config.vm.provision :shell, :path => "scripts/elastcsearch.sh"
+  config.vm.provision :shell, :path => "scripts/elasticsearch.sh"
    
 end
