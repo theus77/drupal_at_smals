@@ -142,5 +142,6 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision :shell, :path => "scripts/always.sh", run: "always"
   config.vm.provision :shell, :path => "scripts/user.sh", run: "always", privileged: false
+  config.vm.provision :shell, :path => "scripts/elastcsearch.sh"
    
 end
